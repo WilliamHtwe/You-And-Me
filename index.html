@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <title>You And Me</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
@@ -17,9 +19,50 @@
   &<br>
   ThinZar
 </h1>
-
     </div>
   </section>
+
+
+<section class="since-we-met-section">
+  <div class="since-we-met-wrapper">
+    <div class="since-we-met-title fade-word">Since We Met</div>
+    <div class="time-counter-row">
+      <div class="time-block fade-word">
+        <div class="time-number" id="days">00</div>
+        <div class="time-label">Days</div>
+      </div>
+      <div class="time-block fade-word">
+        <div class="time-number" id="hours">00</div>
+        <div class="time-label">Hours</div>
+      </div>
+      <div class="time-block fade-word">
+        <div class="time-number" id="minutes">00</div>
+        <div class="time-label">Minutes</div>
+      </div>
+      <div class="time-block fade-word">
+        <div class="time-number" id="seconds">00</div>
+        <div class="time-label">Seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="about-us-section">
+  <div class="about-us-wrapper">
+    <h2 class="about-title scroll-fade">Our Story</h2>
+    <p class="about-text scroll-fade">
+      We met at Space English Language Class, two strangers learning side by side.  
+      Friendship bloomed through shared lessons, laughter, and time — until one day,  
+      that friendship turned into something beautifully more.  
+      <br><br>
+      Now, we're more than classmates or friends.  
+      We're a story that started with words... and became love.
+    </p>
+  </div>
+</section>
+
+
 </body>
 <script>
   window.addEventListener('load', () => {
@@ -30,5 +73,59 @@
       }, 100);
     }
   });
+
+  
+
+  const startDate = new Date("2025-01-01T00:00:00");
+  function updateTime() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const msInSecond = 1000;
+    const msInMinute = 60 * msInSecond;
+    const msInHour = 60 * msInMinute;
+    const msInDay = 24 * msInHour;
+
+    const days = Math.floor(diff / msInDay);
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    document.getElementById("days").textContent = String(days).padStart(2, '0');
+    document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+  }
+
+  setInterval(updateTime, 1000);
+  updateTime();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.fade-word').forEach(el => observer.observe(el));
+  });
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+  });
+
+
+  
 </script>
 </html>

@@ -63,6 +63,20 @@
 </section>
 
 
+<section class="gf-gallery-section">
+  <h2 class="gf-gallery-title fade-on-scroll">My Princess</h2>
+  <div class="gf-gallery-scroll fade-on-scroll">
+    <img src="ImageU/image2.JPG" alt="Moment 1" class="gf-gallery-img">
+    <img src="ImageU/image2.JPG" alt="Moment 2" class="gf-gallery-img">
+    <img src="ImageU/image2.JPG" alt="Moment 3" class="gf-gallery-img">
+    <img src="ImageU/image2.JPG" alt="Moment 4" class="gf-gallery-img">
+  </div>
+</section>
+
+
+
+
+
 </body>
 <script>
   window.addEventListener('load', () => {
@@ -74,7 +88,7 @@
     }
   });
 
-  
+
 
   const startDate = new Date("2025-01-01T00:00:00");
   function updateTime() {
@@ -111,6 +125,7 @@
     document.querySelectorAll('.fade-word').forEach(el => observer.observe(el));
   });
 
+  
 
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -126,6 +141,21 @@
   });
 
 
-  
+   document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".fade-on-scroll");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    elements.forEach(el => observer.observe(el));
+  });
 </script>
 </html>

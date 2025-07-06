@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <title>You And Me</title>
@@ -65,20 +64,99 @@
 
 <section class="gf-gallery-section">
   <h2 class="gf-gallery-title fade-on-scroll">My Princess</h2>
-  <div class="gf-gallery-scroll fade-on-scroll">
+  
+  <div class="gf-gallery-scroll fade-on-scroll" id="gfGalleryScroll">
     <img src="ImageU/image2.JPG" alt="Moment 1" class="gf-gallery-img">
-    <img src="ImageU/image2.JPG" alt="Moment 2" class="gf-gallery-img">
-    <img src="ImageU/image2.JPG" alt="Moment 3" class="gf-gallery-img">
-    <img src="ImageU/image2.JPG" alt="Moment 4" class="gf-gallery-img">
+    <img src="ImageU/image3.JPG" alt="Moment 2" class="gf-gallery-img">
+    <img src="ImageU/image4.JPG" alt="Moment 3" class="gf-gallery-img">
+    <img src="ImageU/image5.JPG" alt="Moment 4" class="gf-gallery-img">
+  </div>
+
+  <div class="gf-gallery-dots fade-on-scroll" id="gfGalleryDots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+  <section class="anniversary-display">
+  <div class="anniversary-text anniversary-fade">
+    <div class="anniversary-label">Our Anniversary</div>
+    <div class="anniversary-subtext">
+      A beautiful day that changed everything — the start of our journey, where love began to write its story.
+    </div>
+    <div class="anniversary-date">01 January 2025</div>
+  </div>
+</section>
+<section class="love-section">
+  <div class="love-image"></div>
+  <div class="overlay"></div>
+  <div class="love-text fade-on-scroll">
+    <h2>Love you</h2>
+    <h2>Baby</h2>
+  </div>
+</section>
+
+<section class="song-section" id="songSection">
+  <h2 class="song-title song-fade-on-scroll">Our Favorite Songs</h2>
+
+  <div class="song-scroll-container song-fade-on-scroll" id="songScroll">
+    <div class="song-box" data-audio="song/song1.mp3" style="background-image: url('ImageU/image7.jpg');">
+      <div class="song-play-button">
+        <img src="ImageU/icon1.png" class="song-play-icon" alt="Play">
+      </div>
+    </div>
+
+    <div class="song-box" data-audio="song/song2.mp3" style="background-image: url('ImageU/image8.jpg');">
+      <div class="song-play-button">
+        <img src="ImageU/icon1.png" class="song-play-icon" alt="Play">
+      </div>
+    </div>
+
+    <div class="song-box" data-audio="song/song3.mp3" style="background-image: url('ImageU/image9.webp');">
+      <div class="song-play-button">
+        <img src="ImageU/icon1.png" class="song-play-icon" alt="Play">
+      </div>
+    </div>
+
+    <div class="song-box" data-audio="song/song4.mp3" style="background-image: url('ImageU/image10.jpg');">
+      <div class="song-play-button">
+        <img src="ImageU/icon1.png" class="song-play-icon" alt="Play">
+      </div>
+    </div>
+  </div>
+
+  <div class="song-dots song-fade-on-scroll" id="songDots">
+    <span class="song-dot active"></span>
+    <span class="song-dot"></span>
+    <span class="song-dot"></span>
+    <span class="song-dot"></span>
+  </div>
+</section>
+
+ <div class="chat-container">
+        <div class="chat-heading scroll-chart-fate">Miss You</div>
+        <div class="chat-messages" id="chatMessages">
+
+        </div>
+    </div>
+
+
+<section class="for-you-section">
+  <div class="for-you-content for-you-fade">
+    <div class="for-you-text">
+      This website is made for you,<br>with love — by <span>KoKo</span>.
+    </div>
+    <img class="for-you-image" src="ImageU/image11.png" alt="Made by KoKo">
   </div>
 </section>
 
 
-
-
-
 </body>
 <script>
+
+
   window.addEventListener('load', () => {
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
@@ -88,6 +166,7 @@
     }
   });
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
   const startDate = new Date("2025-01-01T00:00:00");
@@ -125,7 +204,8 @@
     document.querySelectorAll('.fade-word').forEach(el => observer.observe(el));
   });
 
-  
+ //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
 
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -139,6 +219,8 @@
 
     document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
   });
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
    document.addEventListener("DOMContentLoaded", function () {
@@ -157,5 +239,237 @@
 
     elements.forEach(el => observer.observe(el));
   });
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollContainer = document.getElementById('gfGalleryScroll');
+    const dots = document.querySelectorAll('#gfGalleryDots .dot');
+    const images = scrollContainer.querySelectorAll('.gf-gallery-img');
+
+    scrollContainer.addEventListener('scroll', () => {
+      const scrollLeft = scrollContainer.scrollLeft;
+      const imageWidth = images[0].offsetWidth + 30; 
+
+      const index = Math.round(scrollLeft / imageWidth);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    });
+  });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".fade-on-scroll");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  elements.forEach(el => observer.observe(el));
+});
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".song-fade-on-scroll");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+
+  const scrollContainer = document.getElementById('songScroll');
+  const dots = document.querySelectorAll('#songDots .song-dot');
+  const boxes = scrollContainer.querySelectorAll('.song-box');
+
+  scrollContainer.addEventListener('scroll', () => {
+    const scrollLeft = scrollContainer.scrollLeft;
+    const boxWidth = boxes[0].offsetWidth + 20; 
+    const index = Math.round(scrollLeft / boxWidth);
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  });
+
+  let currentAudio = null;
+  let currentIcon = null;
+
+  boxes.forEach((box, index) => {
+    const btn = box.querySelector(".song-play-button");
+    const icon = btn.querySelector("img");
+    const audioSrc = box.dataset.audio;
+    const audio = new Audio(audioSrc);
+
+    btn.addEventListener("click", function () {
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        if (currentIcon) {
+          currentIcon.src = "ImageU/icon1.png"; 
+        }
+      }
+
+      if (audio.paused) {
+        audio.play();
+        icon.src = "ImageU/icon2.png";
+        currentAudio = audio;
+        currentIcon = icon;
+        dots.forEach(dot => dot.classList.remove("active"));
+        if (dots[index]) dots[index].classList.add("active");
+      } else {
+        audio.pause();
+        icon.src = "ImageU/icon1.png";
+      }
+    });
+
+    audio.addEventListener('ended', function () {
+      icon.src = "ImageU/icon1.png";
+      currentAudio = null;
+      currentIcon = null;
+    });
+  });
+});
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  const chatMessages = document.getElementById('chatMessages');
+        const chatHeading = document.querySelector('.chat-heading');
+        let messageIndex = 0;
+
+        const messages = [
+            { sender: 'Pisi', type: 'text', content: 'Miss you, Ko Ko', side: 'sent' },
+            { sender: 'Koko', type: 'text', content: 'I miss you more, my love. Every second without you feels like forever', side: 'received' },
+            { sender: 'Pisi', type: 'text', content: 'Really? What were you thinking about?', side: 'sent' },
+            { sender: 'Koko', type: 'text', content: "About how good it feels when you're close… your smile, your voice, everything.", side: 'received' },
+        ];
+
+        function createMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${message.side} scroll-chart-fate`;
+
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+
+            const senderName = document.createElement('div');
+            senderName.className = 'sender-name';
+            senderName.textContent = message.sender;
+
+            messageContent.appendChild(senderName);
+
+            if (message.type === 'text') {
+                const bubble = document.createElement('div');
+                bubble.className = 'message-bubble';
+                bubble.textContent = message.content;
+                messageContent.appendChild(bubble);
+            } else if (message.type === 'image') {
+                const img = document.createElement('img');
+                img.className = 'message-image';
+                img.src = message.content;
+                img.alt = 'Shared image';
+                messageContent.appendChild(img);
+            }
+
+            messageDiv.appendChild(messageContent);
+
+            return messageDiv;
+        }
+        messages.forEach(msg => {
+            const msgEl = createMessage(msg);
+            chatMessages.appendChild(msgEl);
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.scroll-chart-fate').forEach(el => observer.observe(el));
+        });
+
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.message.scroll-chart-fate').forEach(msg => fadeInObserver.observe(msg));
+
+        const headingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    headingObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        headingObserver.observe(chatHeading);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".anniversary-fade");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  elements.forEach(el => observer.observe(el));
+});
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fadeElements = document.querySelectorAll(".anniversary-fade, .for-you-fade");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeElements.forEach(el => observer.observe(el));
+});
+
+
 </script>
 </html>

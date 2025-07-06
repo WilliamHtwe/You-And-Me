@@ -1,6 +1,6 @@
 *{
-  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+   font-weight: normal;
 }
 
 body, html {
@@ -37,8 +37,8 @@ body, html {
   height: 100vh;
   background-image: url('ImageU/image1.JPG'); 
   background-size: cover;
+     filter: grayscale(100%); 
   background-position: center;
-  filter: grayscale(100%); 
 }
 
 .overlay {
@@ -62,7 +62,7 @@ body, html {
 
 .hero-content h1 {
   font-family: 'DarlingtonDemo', cursive, sans-serif;
-  font-size: 4rem;
+  font-size: 80px;
   font-weight: normal;
   line-height: 1.2;
   text-align: center;
@@ -78,11 +78,7 @@ body, html {
   opacity: 1;
 }
 
-@media (max-width: 600px) {
-  .hero-content h1 {
-    font-size: 5rem;
-  }
-}
+
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -97,7 +93,8 @@ body, html {
 
 .since-we-met-title {
   font-family: 'DarlingtonDemo', cursive;
-  font-size: 3rem;
+   font-weight: normal;
+    font-size: 48px;
   padding-bottom: 60px;
 }
 
@@ -105,7 +102,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+   gap: 30px;
   flex-wrap: wrap;
 }
 
@@ -123,7 +120,7 @@ body, html {
 }
 
 .time-number {
-  font-size: 4rem;
+   font-size: 16px;
   margin-top: 0;
 }
 
@@ -144,20 +141,6 @@ body, html {
   transform: translateY(0);
 }
 
-@media (max-width: 600px) {
-  .time-number {
-    font-size: 16px;
-  }
-
-  .since-we-met-title {
-      font-weight: normal;
-    font-size: 48px;
-  }
-
-  .time-counter-row {
-    gap: 30px;
-  }
-}
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -220,7 +203,7 @@ body, html {
   font-size: 48px;
   font-weight: normal;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
   color: #f5f5f5; 
   font-family: 'DarlingtonDemo', cursive; 
 }
@@ -252,4 +235,415 @@ body, html {
 .fade-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.gf-gallery-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 12px;
+}
+
+.gf-gallery-dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color:  #ff8da7;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.gf-gallery-dots .dot.active {
+  width: 30px;
+  height: 6px;
+  border-radius: 20px;
+  background-color: #ff8da7;
+  opacity: 1;
+}
+  /*-------------------------------------------------------------------------------------------------------------*/
+
+.love-section {
+  position: relative;
+  background-color: #000000;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.love-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('ImageU/image6.JPG'); 
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  filter: grayscale(100%);
+  pointer-events: none;
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.429) 0%, rgba(0, 0, 0, 1) 100%);
+  z-index: 1;
+}
+
+.love-text {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 30px;
+  font-family: 'DarlingtonDemo', cursive; 
+  color: #f5f5f5;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+}
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+.fade-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+  @media (max-width: 600px) {
+  .love-text {
+    font-size: 48px;
+    font-weight: normal;
+     }
+  
+  }
+
+
+  /*-------------------------------------------------------------------------------------------------------------*/
+
+.song-section {
+  background-color: #000000;
+  padding: 100px 30px;
+  color: #f5f5f5;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.song-title {
+  font-size: 48px;
+  color: #F5F5F5;
+  font-family: 'DarlingtonDemo', cursive;
+  padding-bottom: 60px;
+}
+
+.song-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+.song-box {
+  width: 100%;
+  height: 400px;
+  flex: 0 0 auto;
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  position: relative;
+  scroll-snap-align: start;
+  padding: 30px;
+}
+
+.song-play-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.song-play-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.song-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 12px;
+}
+
+.song-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ff8da7;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.song-dot.active {
+  width: 30px;
+  height: 6px;
+  border-radius: 20px;
+  background-color: #ff8da7;
+  opacity: 1;
+}
+
+
+.song-fade-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.song-fade-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  /*-------------------------------------------------------------------------------------------------------------*/
+ .chat-container {
+            width: 100%;
+            background: black;
+            display: flex;
+            padding : 100px 30px 0px 30px;
+            flex-direction: column;
+  
+            margin-bottom: 0;
+            height: fit-content;
+            box-sizing: border-box; 
+            overflow: hidden; 
+        }
+
+        .chat-heading {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;      
+            justify-content: center;
+            font-size: 48px;
+            font-weight: normal;
+              font-family: 'DarlingtonDemo', cursive;
+              padding-bottom: 60px;
+            color: #f5f5f5;
+            margin-top: 0;
+            background: transparent;
+            text-align: center;
+
+            opacity: 0;
+            transform: translateY(25px) scale(0.96);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .chat-heading.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .chat-messages {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+
+            height: calc(100% - 60px - 20px);
+            overflow: visible;
+            padding-bottom: 100px; 
+        }
+
+        .message {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(25px) scale(0.96);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .message.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .message.sent {
+            flex-direction: row-reverse;
+        }
+
+        .message.received {
+            flex-direction: row;
+        }
+
+        .avatar {
+            display: none;
+        }
+
+        .message-content {
+            max-width: 75%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .message-bubble {
+            padding: 12px 16px;
+            border-radius: 20px;
+            word-wrap: break-word;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .message.sent .message-bubble {
+           background-color: #ff8da7;
+            color: #f5f5f5;
+            border-bottom-right-radius: 8px;
+        }
+
+        .message.received .message-bubble {
+            background: #f5f5f5;
+            color: #000000;
+            border-bottom-left-radius: 8px;
+        }
+
+        .message-image {
+            max-width: 200px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .message.sent .message-image {
+            border-bottom-right-radius: 8px;
+        }
+
+        .message.received .message-image {
+            border-bottom-left-radius: 8px;
+        }
+
+        .sender-name {
+            font-size: 11px;
+            color: #f5f5f5;
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .message.sent .sender-name {
+            text-align: right;
+        }
+
+        .scroll-chart-fate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-chart-fate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+  /*-------------------------------------------------------------------------------------------------------------*/
+
+.anniversary-display {
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  justify-content: center;
+  padding: 100px 30px;
+    color: #f5f5f5;
+  text-align: center;
+}
+
+.anniversary-text {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.anniversary-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anniversary-label {
+  font-size: 48px;
+  font-weight: normal;
+  font-family: 'DarlingtonDemo', cursive;
+  padding-bottom: 60px;
+  margin-top: 0;
+}
+
+.anniversary-date {
+  font-size: 36px;
+  margin-top: 0;
+  font-weight: bold;
+
+}
+.anniversary-subtext {
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: normal;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+.for-you-section {
+  background-color: #000000;
+  color: #f5f5f5;
+  text-align: center;
+  padding: 100px 30px;
+}
+
+.for-you-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.for-you-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.for-you-text {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.6;
+  margin-bottom: 60px;
+  color: #ffffffcc;
+}
+
+.for-you-text span {
+  font-weight: 500;
+  color: #ff8da7;
+}
+
+.for-you-image {
+  width: 200px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.for-you-image:hover {
+  transform: scale(1.05);
 }

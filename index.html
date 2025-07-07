@@ -45,6 +45,31 @@
     </div>
   </div>
 </section>
+  <div class="national-container">
+<h1 class="national-title anniversary-fade">Happy National Girlfriend Day</h1>
+
+
+    <div class="national-fade-group anniversary-fade">
+      <img src="ImageU/image12.jpg" alt="Your Girlfriend" class="national-image" />
+
+      <div id="national-subtitle" class="national-subtitle">
+        <div id="subtitle-text" class="subtitle-text">I am so lucky to have you.</div>
+
+        <div class="bottom-controls">
+          <div class="progress-bar-container">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+          <button class="national-button" onclick="nationalPlayVideo()">Enjoy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="national-video-wrapper">
+    <video id="national-video" src="song/song5.mp4" preload="auto"></video>
+  </div>
+
+
 
 
 <section class="about-us-section">
@@ -470,6 +495,60 @@ document.addEventListener("DOMContentLoaded", function () {
   fadeElements.forEach(el => observer.observe(el));
 });
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+const nationalSubtitles = [
+  { time: 0.0, text: "Do you remember, we were sittin' there by the water?" },
+  { time: 4.0, text: "You put your arm around me, for the first time" },
+  { time: 8.0, text: "You made a rebel of a careless man's careful daughter" },
+  { time: 11.5, text: "You are the best thing that's ever been mine" },
+  { time: 15.5, text: "Do you remember all the city lights on the water?" },
+  { time: 19.5, text: "You saw me start to believe for the first time" },
+  { time: 23.0, text: "You made a rebel of a careless man's careful daughter" },
+  { time: 27.5, text: "You are the best thing that's ever been mine" }
+];
+
+const nationalVideo = document.getElementById('national-video');
+const nationalSubtitleEl = document.getElementById('subtitle-text');
+const progressBarFill = document.getElementById('progress-bar-fill');
+
+const defaultMessage = "I am so lucky to have you.";
+nationalSubtitleEl.textContent = defaultMessage;
+
+function nationalPlayVideo() {
+  nationalVideo.play();
+}
+
+nationalVideo.addEventListener('timeupdate', () => {
+  const current = nationalVideo.currentTime;
+  const duration = nationalVideo.duration || 1;
+  const currentLine = nationalSubtitles.findLast(sub => current >= sub.time);
+
+  nationalSubtitleEl.textContent = currentLine ? currentLine.text : defaultMessage;
+
+  const progressPercent = (current / duration) * 100;
+  progressBarFill.style.width = progressPercent + '%';
+});
+
+nationalVideo.addEventListener('ended', () => {
+  nationalSubtitleEl.textContent = defaultMessage;
+  progressBarFill.style.width = '0%';
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const fadeEls = document.querySelectorAll(".anniversary-fade");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  fadeEls.forEach(el => observer.observe(el));
+});
 
 </script>
 </html>

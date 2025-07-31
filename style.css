@@ -775,3 +775,56 @@ body, html {
   opacity: 1;
   transform: translateY(0);
 }
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.avatar-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.avatar-border {
+  width: 255px;
+  height: 254px;
+  position: absolute;
+  top: -33px;
+  left:-23px;
+  pointer-events: none;
+}
+
+.avatar-box {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.avatar-text {
+  margin-top: 100px;
+  text-align: center;
+  font-weight: normal;
+    font-family: 'Inter', sans-serif;
+  color: #ffffff;
+}
+
+.happy-line {
+  font-size: 36px;
+    font-weight: normal;
+  margin: 0;
+}
+
+.monthsary-line {
+  font-size: 36px;
+    font-weight: normal;
+  margin: 0;
+}
